@@ -38,18 +38,18 @@ def get_emotion():
         if file and allowed_file(file.filename):
             try:
                 filename = secure_filename(file.filename)
-                print filename
+                print(filename)
                 file.save(os.path.join("./", filename))
-                print "file saved"
+                print("file saved")
                 test_audio = getFeature(os.path.join("./", filename))
-                print "Preparing file"
+                print("Preparing file")
                 testFeatureList = []
                 for a in test_audio:
                     testFeatureList.append(a)
                 clf = joblib.load('./data/model/model.pkl')
                 output = clf.predict(testFeatureList)
                 counter=collections.Counter(output)
-                print counter
+                print(counter)
                 emotion_index = counter.most_common()[0][0]
                 emotion_count = counter.most_common()[0][1]
                 emotion = emotion_array[emotion_index]
