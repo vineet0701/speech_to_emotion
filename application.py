@@ -19,8 +19,15 @@ application = Flask(__name__)
 emotion_array = ['happy', 'sadness', 'angry']
 
 def convertFile(filename):
-    sound = AudioSegment.from_file(filename, "3gpp")
-    sound.export("/inputFile.wav", format="wav")
+    file_format = filename.split('.')[-1]
+    if file_format == "3gpp":
+        sound = AudioSegment.from_file(filename, "3gpp")
+        sound.export("/inputFile.wav", format="wav")
+    elif file_format == "mp3":
+        sound = AudioSegment.from_mp3(filename)
+        sound.export("/inputFile.wav", format="wav")
+    elif:
+        return filename
     return "inputFile.wav"
 
 def allowed_file(filename):
