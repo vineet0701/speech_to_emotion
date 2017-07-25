@@ -56,8 +56,8 @@ def get_emotion():
                 jobject = {}
                 jobject['status'] = "OK"
                 jobject['emotion'] = emotion
-                jobject['emotion_index'] = emotion_index
-                jobject['confidence'] = float(emotion_count)/float(counter[0] + counter[1] + counter[2])
+                jobject['emotion_index'] = str(emotion_index)
+                jobject['confidence'] = str(float(emotion_count)/float(counter[0] + counter[1] + counter[2]))
                 return json.dumps(jobject)
             except Exception as ex:
                 jobject = {}
