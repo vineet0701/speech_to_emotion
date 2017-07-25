@@ -19,7 +19,8 @@ application = Flask(__name__)
 emotion_array = ['happy', 'sadness', 'angry']
 
 def convertFile(filename):
-    subprocess.call(['ffmpeg', '-i', filename, './inputFile.wav'])
+    sound = AudioSegment.from_file(filename, "3gpp")
+    sound.export("/inputFile.wav", format="wav")
     return "inputFile.wav"
 
 def allowed_file(filename):
