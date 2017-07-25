@@ -27,7 +27,7 @@ def convertFile(filename):
     elif file_format == "mp3":
         sound = AudioSegment.from_mp3(filename)
         sound.export("/inputFile.wav", format="wav")
-    elif:
+    else:
         return filename
     return "inputFile.wav"
 
