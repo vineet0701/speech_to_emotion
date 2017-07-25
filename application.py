@@ -10,12 +10,17 @@ from sklearn.externals import joblib
 import numpy as np
 import collections
 import traceback
+import subprocess
 
 from flask import Flask, request
 
 application = Flask(__name__)
 
 emotion_array = ['happy', 'sadness', 'angry']
+
+def convertFile(filename):
+    subprocess.call(['ffmpeg', '-i', filename, './inputFile.wav'])
+    return "inputFile.wav"
 
 def allowed_file(filename):
     return True
@@ -43,6 +48,7 @@ def get_emotion():
                 print(filename)
                 file.save(os.path.join("./", filename))
                 print("file saved")
+                filename = convertFile("./" + filename)
                 test_audio = getFeature(os.path.join("./", filename))
                 print("Preparing file")
                 testFeatureList = []
