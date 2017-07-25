@@ -61,6 +61,7 @@ def get_emotion():
                 file.save(os.path.join("./", filename))
                 print("file saved")
                 filename = convertFile("./" + filename)
+                print("Converted File: " + filename)
                 test_audio = getFeature(os.path.join("./", filename))
                 print("Preparing file")
                 testFeatureList = []
