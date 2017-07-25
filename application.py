@@ -24,7 +24,7 @@ def convertFile(filename):
     if file_format == "aac":
         sound = AudioSegment.from_file(filename, "aac")
         sound.export("./inputFile.wav", format="wav")
-    if file_format == "3gpp":
+    elif file_format == "3gpp":
         sound = AudioSegment.from_file(filename, "3gp")
         sound.export("/inputFile.wav", format="wav")
     elif file_format == "mp3":
