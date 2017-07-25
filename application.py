@@ -101,7 +101,7 @@ def getFeature(filename):
     mfcc_feat = mfcc(sig,rate)
     d_mfcc_feat = delta(mfcc_feat, 2)
     fbank_feat = logfbank(sig,rate)
-    features = np.hstack((mfcc_feat, d_mfcc_feat, fbank_feat))
+    features = fbank_feat #np.hstack((mfcc_feat, d_mfcc_feat, fbank_feat))
     return features
 
 def getFiles(directoryName):
