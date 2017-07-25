@@ -21,6 +21,8 @@ def allowed_file(filename):
     return True
 
 def secure_filename(filename):
+    col = filename.split('/')
+    filename = col[-1]
     return filename
 
 @application.route('/testPath')
