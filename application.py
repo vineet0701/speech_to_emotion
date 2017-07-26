@@ -67,7 +67,7 @@ def get_emotion():
                 
                 clf = joblib.load('data/model/model.pkl')
                 predictions = []
-                for i in xrange(10):
+                for i in range(10):
                     test_audio = performClustering(getFeature(os.path.join("./", filename)), 20, 2)
                     #print("Preparing file")
                     testFeatureList = []
@@ -93,6 +93,7 @@ def get_emotion():
                 jobject = {}
                 jobject['status'] = "Error"
                 jobject['Message'] = traceback.format_exc()
+                print(jobject)
                 return json.dumps(jobject)
         else:
             jobject = {}
