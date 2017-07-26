@@ -62,7 +62,7 @@ def get_emotion():
                 print(filename)
                 file.save(os.path.join("./", filename))
                 print("file saved")
-                #filename = convertFile("./" + filename)
+                filename = convertFile("./" + filename)
                 print("Converted File: " + filename)
                 
                 clf = joblib.load('data/model/model.pkl')
