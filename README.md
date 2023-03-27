@@ -1,1 +1,1 @@
-# speech_to_emotion
+# speech_to_emotion detection python project
